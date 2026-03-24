@@ -1,9 +1,10 @@
-import { useState, useEffect, useRef } from 'react'
-import { useParams } from 'react-router-dom'
+import { useState, useEffect, useRef, useCallback } from 'react'
+import { useParams, useNavigate } from 'react-router-dom'
 import { useQuery, useMutation, useQueryClient } from '@tanstack/react-query'
 import { Send, ArrowLeft } from 'lucide-react'
 import api from '../services/api'
 import { useAuthStore } from '../stores/auth.store'
+import { useSocketStore } from '../stores/socket.store'
 import { format } from 'date-fns'
 import toast from 'react-hot-toast'
 
@@ -25,9 +26,14 @@ interface Thread {
 export default function ChatPage() {
   const { threadId } = useParams<{ threadId?: string }>()
   const { user } = useAuthStore()
+  const navigate = useNavigate()
   const queryClient = useQueryClient()
   const messagesEndRef = useRef<HTMLDivElement>(null)
   const [newMessage, setNewMessage] = useState('')
+  const [localMessages, setLocalMessages] = useState<Message[]>([])
+  const typingTimeoutRef = useRef<NodeJS.Timeout>()
+
+  const { socket, connected, joinThread, leaveThread, sendTyping, typingUsers } = useSocketStore()
 
   const { data: threadsData } = useQuery({
     queryKey: ['chat-threads'],
@@ -44,8 +50,47 @@ export default function ChatPage() {
       return response.data.data
     },
     enabled: !!threadId,
-    refetchInterval: 5000,
   })
+
+  useEffect(() => {
+    if (messagesData?.messages) {
+      setLocalMessages(messagesData.messages)
+    }
+  }, [messagesData])
+
+  useEffect(() => {
+    if (threadId && socket && connected) {
+      joinThread(threadId)
+      return () => leaveThread(threadId)
+    }
+  }, [threadId, socket, connected])
+
+  useEffect(() => {
+    const handleNewMessage = (event: CustomEvent<Message>) => {
+      if (event.detail.threadId === threadId) {
+        setLocalMessages((prev) => [...prev, event.detail])
+      }
+      queryClient.invalidateQueries({ queryKey: ['chat-threads'] })
+    }
+    window.addEventListener('socket_message', handleNewMessage as EventListener)
+    return () => window.removeEventListener('socket_message', handleNewMessage as EventListener)
+  }, [threadId, queryClient])
+
+  useEffect(() => {
+    messagesEndRef.current?.scrollIntoView({ behavior: 'smooth' })
+  }, [localMessages])
+
+  const handleTyping = useCallback(() => {
+    if (threadId) {
+      sendTyping(threadId, true)
+      if (typingTimeoutRef.current) {
+        clearTimeout(typingTimeoutRef.current)
+      }
+      typingTimeoutRef.current = setTimeout(() => {
+        sendTyping(threadId, false)
+      }, 2000)
+    }
+  }, [threadId, sendTyping])
 
   const sendMessageMutation = useMutation({
     mutationFn: async (content: string) => {
@@ -55,20 +100,22 @@ export default function ChatPage() {
       queryClient.invalidateQueries({ queryKey: ['messages', threadId] })
       queryClient.invalidateQueries({ queryKey: ['chat-threads'] })
       setNewMessage('')
+      sendTyping(threadId!, false)
     },
     onError: () => {
       toast.error('Failed to send message')
     },
   })
 
-  useEffect(() => {
-    messagesEndRef.current?.scrollIntoView({ behavior: 'smooth' })
-  }, [messagesData?.messages])
-
   const handleSend = (e: React.FormEvent) => {
     e.preventDefault()
     if (!newMessage.trim()) return
     sendMessageMutation.mutate(newMessage)
+  }
+
+  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setNewMessage(e.target.value)
+    handleTyping()
   }
 
   if (!threadId) {
@@ -78,10 +125,10 @@ export default function ChatPage() {
         {threadsData?.threads?.length > 0 ? (
           <div className="bg-white rounded-xl shadow-sm divide-y divide-gray-100">
             {threadsData.threads.map((thread: Thread) => (
-              <a
+              <button
                 key={thread.id}
-                href={`/chat/${thread.id}`}
-                className="flex items-center gap-3 p-4 hover:bg-gray-50 transition"
+                onClick={() => navigate(`/chat/${thread.id}`)}
+                className="w-full flex items-center gap-3 p-4 hover:bg-gray-50 transition text-left"
               >
                 <img
                   src={thread.otherUser.profilePhoto || 'https://via.placeholder.com/48'}
@@ -104,7 +151,7 @@ export default function ChatPage() {
                     <span className="text-white text-xs">{thread.unreadCount}</span>
                   </div>
                 )}
-              </a>
+              </button>
             ))}
           </div>
         ) : (
@@ -117,30 +164,38 @@ export default function ChatPage() {
     )
   }
 
+  const isTyping = typingUsers[threadId]
+  const currentThread = threadsData?.threads?.find((t: Thread) => t.id === threadId)
+
   return (
     <div className="flex flex-col h-[calc(100vh-140px)]">
       <div className="flex items-center gap-3 mb-4">
-        <a href="/chat" className="p-2 hover:bg-gray-100 rounded-lg">
+        <button onClick={() => navigate('/chat')} className="p-2 hover:bg-gray-100 rounded-lg">
           <ArrowLeft className="text-slate" size={20} />
-        </a>
+        </button>
         <div className="w-10 h-10 bg-primary-light rounded-full flex items-center justify-center">
           <span className="text-primary font-semibold">
-            {threadsData?.threads?.find((t: Thread) => t.id === threadId)?.otherUser.fullName?.charAt(0) || 'U'}
+            {currentThread?.otherUser.fullName?.charAt(0) || 'U'}
           </span>
         </div>
-        <span className="font-semibold text-navy">
-          {threadsData?.threads?.find((t: Thread) => t.id === threadId)?.otherUser.fullName || 'Chat'}
-        </span>
+        <div className="flex-1">
+          <span className="font-semibold text-navy">
+            {currentThread?.otherUser.fullName || 'Chat'}
+          </span>
+          {connected && (
+            <span className="text-xs text-green-500 ml-2">● Online</span>
+          )}
+        </div>
       </div>
 
       <div className="flex-1 bg-white rounded-xl p-4 overflow-y-auto mb-4">
         {loadingMessages ? (
           <div className="flex items-center justify-center h-full">
-            <p className="text-slate">Loading messages...</p>
+            <div className="animate-spin w-6 h-6 border-2 border-primary border-t-transparent rounded-full"></div>
           </div>
-        ) : messagesData?.messages?.length > 0 ? (
+        ) : localMessages.length > 0 ? (
           <div className="space-y-3">
-            {messagesData.messages.map((message: Message) => {
+            {localMessages.map((message: Message) => {
               const isOwn = message.senderId === user?.id || message.senderId === user?.userId
               return (
                 <div
@@ -162,6 +217,17 @@ export default function ChatPage() {
                 </div>
               )
             })}
+            {isTyping && (
+              <div className="flex justify-start">
+                <div className="bg-gray-100 px-4 py-2 rounded-2xl rounded-bl-md">
+                  <div className="flex gap-1">
+                    <span className="w-2 h-2 bg-gray-400 rounded-full animate-bounce"></span>
+                    <span className="w-2 h-2 bg-gray-400 rounded-full animate-bounce" style={{ animationDelay: '0.1s' }}></span>
+                    <span className="w-2 h-2 bg-gray-400 rounded-full animate-bounce" style={{ animationDelay: '0.2s' }}></span>
+                  </div>
+                </div>
+              </div>
+            )}
             <div ref={messagesEndRef} />
           </div>
         ) : (
@@ -175,7 +241,7 @@ export default function ChatPage() {
         <input
           type="text"
           value={newMessage}
-          onChange={(e) => setNewMessage(e.target.value)}
+          onChange={handleInputChange}
           placeholder="Type a message..."
           className="input flex-1"
         />
