@@ -73,14 +73,34 @@ export default function HomePage() {
       </section>
 
       <section className="py-16 bg-gray-50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h2 className="text-3xl font-bold text-navy mb-4">Ready to Get Started?</h2>
-          <p className="text-slate mb-8 max-w-2xl mx-auto">
-            Join thousands of families and caretakers using CareTaker every day.
-          </p>
-          <Link to="/register" className="btn-primary inline-block">
-            Create Free Account
-          </Link>
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <h2 className="text-3xl font-bold text-navy mb-8 text-center">Choose How You Want to Join</h2>
+          <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+            <div className="bg-white rounded-xl p-8 shadow-sm">
+              <div className="w-14 h-14 bg-primary-light rounded-full flex items-center justify-center mx-auto mb-4">
+                <Heart className="text-primary" size={28} />
+              </div>
+              <h3 className="text-xl font-bold text-navy mb-2 text-center">I Need Care</h3>
+              <p className="text-slate mb-6 text-center">
+                Find verified caretakers for yourself or your loved ones. Book appointments directly.
+              </p>
+              <Link to="/register" className="btn-primary w-full text-center block">
+                Find a Caretaker
+              </Link>
+            </div>
+            <div className="bg-white rounded-xl p-8 shadow-sm">
+              <div className="w-14 h-14 bg-primary-light rounded-full flex items-center justify-center mx-auto mb-4">
+                <Users className="text-primary" size={28} />
+              </div>
+              <h3 className="text-xl font-bold text-navy mb-2 text-center">I'm a Caretaker</h3>
+              <p className="text-slate mb-6 text-center">
+                Share your care skills, set your own rates, and build your client base.
+              </p>
+              <Link to="/register?role=caretaker" className="btn-secondary w-full text-center block">
+                Become a Caretaker
+              </Link>
+            </div>
+          </div>
         </div>
       </section>
     </div>
