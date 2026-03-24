@@ -1,0 +1,13 @@
+{
+  "name": "caretaker-app",
+  "version": "1.0.0",
+  "description": "CareTaker - Connect patients with caretakers",
+  "scripts": {
+    "setup": "node scripts/setup.js",
+    "validate": "cd backend && node config/validate.js",
+    "dev": "npm run dev:backend & npm run dev:frontend",
+    "dev:backend": "cd backend && npm run dev",
+    "dev:frontend": "cd frontend && npm run dev",
+    "install:all": "npm install && cd backend && npm install && cd ../frontend && npm install"
+  }
+}

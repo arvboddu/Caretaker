@@ -1,0 +1,229 @@
+Great — here is what you asked for:  
+**A complete, step‑by‑step list of AI prompts** you can use in Copilot/ChatGPT/any AI tool to build your **CareTaker App** from idea → design → code → launch.
+
+These prompts are crafted in the exact sequence you should run them during development.
+
+***
+
+# 🚀 **MASTER LIST — AI PROMPTS for Building the CareTaker App**
+
+Below are **35+ prompts** arranged in **perfect execution order**.
+
+You can copy & paste each prompt into your AI assistant during the corresponding phase.
+
+***
+
+# 🧱 **PHASE 1 — REQUIREMENTS & PLANNING**
+
+### **Prompt 1 – Refine the App Concept**
+
+> *“Refine my app idea called CareTaker: a platform connecting patients with caretakers without middlemen. Expand the concept, propose improvements, and list risks and opportunities.”*
+
+### **Prompt 2 – Generate User Personas**
+
+> *“Generate detailed user personas for 3 users: patient, caretaker, and admin for my CareTaker platform.”*
+
+### **Prompt 3 – Generate Use Cases**
+
+> *“List all high‑level and low‑level use cases for a CareTaker app where patients select caretakers based on skills, availability, and rating.”*
+
+### **Prompt 4 – Generate User Journey Map**
+
+> *“Create a full patient and caretaker user journey map from onboarding → selecting caretaker → booking → chatting → service completion.”*
+
+***
+
+# 🎨 **PHASE 2 — UI/UX & DESIGN**
+
+### **Prompt 5 – Generate Wireframes**
+
+> *“Create low‑fidelity wireframes for the CareTaker app: login, patient dashboard, caretaker profile view, booking screen, and chat.”*
+
+### **Prompt 6 – Generate Design System**
+
+> *“Create a UI design system for CareTaker including colors, typography, spacing, card design, and button components.”*
+
+### **Prompt 7 – Generate UX Flows**
+
+> *“Create UX flow diagrams for: signup, caretaker selection, booking, chat, and reviews.”*
+
+***
+
+# 🏗️ **PHASE 3 — TECHNICAL DOCUMENTATION**
+
+### **Prompt 8 – Generate Tech Stack**
+
+> *“Recommend the best lightweight, free tech stack for front-end, backend, chat, and database for my CareTaker app using Supabase as DB.”*
+
+### **Prompt 9 – Generate Architecture Diagram**
+
+> *“Create a system architecture diagram for CareTaker using React, Node.js, Supabase, and Socket.IO.”*
+
+### **Prompt 10 – Generate API Contract**
+
+> *“Generate REST API contracts for all modules in CareTaker, including endpoints, request/response JSON, and validation rules.”*
+
+### **Prompt 11 – Generate ER Diagram**
+
+> *“Create a database ERD for patients, caretakers, bookings, chat messages, and ratings using PostgreSQL/Supabase.”*
+
+### **Prompt 12 – Generate Functional Requirements Document**
+
+> *“Generate a complete functional requirements document for CareTaker including module-wise features, flows, permissions, and rules.”*
+
+***
+
+# 🛠️ **PHASE 4 — PROJECT SETUP**
+
+### **Prompt 13 – Generate Folder Structure**
+
+> *“Create a full production-ready folder structure for a Node.js + Express + Supabase backend for CareTaker.”*
+
+### **Prompt 14 – Generate React Frontend Folder Structure**
+
+> *“Generate folder structure for React + Vite + Tailwind frontend including pages, components, hooks, context, and services.”*
+
+***
+
+# 🔐 **PHASE 5 — AUTH DEVELOPMENT**
+
+### **Prompt 15 – Generate Auth Backend Code**
+
+> *“Generate login, register, JWT authentication, password hashing, and authorization middleware using Node.js + Express + Supabase.”*
+
+### **Prompt 16 – Generate Auth Frontend Code**
+
+> *“Generate React code for login, signup, protected routes, and user context using JWT tokens.”*
+
+***
+
+# 👤 **PHASE 6 — USER MODULE IMPLEMENTATION**
+
+## **Patients Module**
+
+### **Prompt 17 – Patient APIs**
+
+> *“Generate Express.js APIs for patient profile creation, update, and medical details management using Supabase.”*
+
+### **Prompt 18 – Frontend Patient Dashboard**
+
+> *“Generate React code for the patient dashboard showing required services, upcoming bookings, and recommended caretakers.”*
+
+***
+
+## **Caretakers Module**
+
+### **Prompt 19 – Caretaker Registration APIs**
+
+> *“Generate Express.js APIs for caretaker registration, experience, skills, rates, and availability schedules.”*
+
+### **Prompt 20 – Caretaker Profile UI**
+
+> *“Generate a React page showing caretaker profile, rating, services offered, availability, and booking button.”*
+
+***
+
+# 📅 **PHASE 7 — BOOKING SYSTEM**
+
+### **Prompt 21 – Booking APIs**
+
+> *“Generate Express.js APIs for creating booking requests, updating status (pending/accepted/rejected/completed), and listing bookings for patient and caretaker.”*
+
+### **Prompt 22 – Booking UI**
+
+> *“Generate React UI components for booking calendar, date picker, caretaker availability view, and booking summary.”*
+
+***
+
+# 💬 **PHASE 8 — REALTIME CHAT**
+
+### **Prompt 23 – Chat Backend**
+
+> *“Generate Node.js + Socket.IO server code for chat between patient and caretaker with persistent storage in Supabase.”*
+
+### **Prompt 24 – Chat Frontend**
+
+> *“Generate React chat UI similar to WhatsApp with message bubbles, timestamps, sender/receiver differentiation.”*
+
+***
+
+# ⭐ **PHASE 9 — RATINGS & REVIEWS**
+
+### **Prompt 25 – Ratings APIs**
+
+> *“Generate Express APIs for adding caretaker ratings, retrieving average rating, and storing review comments.”*
+
+### **Prompt 26 – Ratings UI**
+
+> *“Generate React UI for star-rating component and caretaker review section.”*
+
+***
+
+# 🔍 **PHASE 10 — SEARCH & FILTER**
+
+### **Prompt 27 – Search Backend**
+
+> *“Generate APIs to search caretakers by skill, price range, distance, availability, and rating using Supabase SQL queries.”*
+
+### **Prompt 28 – Search UI**
+
+> *“Generate React code for a search bar, filters, sort options, and caretaker list cards.”*
+
+***
+
+# 🚀 **PHASE 11 — DEPLOYMENT**
+
+### **Prompt 29 – Backend Deployment**
+
+> *“Generate instructions and config files for deploying Node.js API on Render free tier.”*
+
+### **Prompt 30 – Frontend Deployment**
+
+> *“Generate steps to deploy React app on Vercel including environment variables.”*
+
+### **Prompt 31 – Supabase Production Setup**
+
+> *“Provide production checklist for Supabase: RLS policies, API keys, backups, environment variables.”*
+
+***
+
+# 📱 **PHASE 12 — OPTIONAL: MOBILE APP**
+
+### **Prompt 32 – React Native Setup**
+
+> *“Generate React Native + Expo setup for a mobile version of CareTaker.”*
+
+### **Prompt 33 – Mobile Chat Component**
+
+> *“Generate React Native chat screen using GiftedChat integrated with backend Socket.IO server.”*
+
+***
+
+# ✨ **PHASE 13 — BUSINESS & BRANDING**
+
+### **Prompt 34 – Pitch Deck**
+
+> *“Create a 10-slide startup pitch deck for CareTaker including problem, solution, market, competition, business model, and roadmap.”*
+
+### **Prompt 35 – Tagline & Branding**
+
+> *“Create branding concepts, slogans, color palette suggestions, and logo ideas for CareTaker.”*
+
+***
+
+# 🎯 Want me to package these into downloadable Markdown files?
+
+I can generate:
+
+✅ `ai_prompts_full.md`  
+✅ `ai_prompts_by_phase.md`  
+✅ `ai_prompts_starter_pack.md`
+
+Just say:
+
+👉 **“Generate as markdown files for download.”**
+
+Or if you want…
+
+👉 **“Generate all backend code now.”**
+=============

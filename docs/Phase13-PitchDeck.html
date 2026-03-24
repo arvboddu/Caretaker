@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CareTaker - Investor Pitch Deck</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background: #1a1a2e; color: #fff; }
+        .slide { min-height: 100vh; padding: 60px; display: flex; flex-direction: column; justify-content: center; border-bottom: 2px solid #333; }
+        .slide-number { position: absolute; top: 20px; right: 40px; color: #666; font-size: 14px; }
+        .title-slide { background: linear-gradient(135deg, #0D9488 0%, #1E3A5F 100%); text-align: center; }
+        h1 { font-size: 72px; margin-bottom: 20px; color: #fff; }
+        h2 { font-size: 48px; margin-bottom: 40px; color: #0D9488; }
+        h3 { font-size: 28px; color: #fff; margin-bottom: 20px; }
+        .tagline { font-size: 28px; color: #fff; opacity: 0.9; margin-bottom: 40px; }
+        .subtitle { font-size: 20px; color: rgba(255,255,255,0.7); }
+        .grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 40px; }
+        .card { background: rgba(255,255,255,0.1); border-radius: 16px; padding: 30px; }
+        .card h4 { color: #0D9488; font-size: 20px; margin-bottom: 10px; }
+        .stat { text-align: center; }
+        .stat-number { font-size: 64px; font-weight: bold; color: #0D9488; }
+        .stat-label { font-size: 18px; color: #aaa; }
+        table { width: 100%; border-collapse: collapse; margin: 20px 0; }
+        th, td { padding: 15px; text-align: left; border-bottom: 1px solid #333; }
+        th { color: #0D9488; font-size: 18px; }
+        ul { list-style: none; }
+        li { padding: 10px 0; font-size: 18px; }
+        li::before { content: "✓ "; color: #0D9488; }
+        .highlight { background: linear-gradient(135deg, #0D9488 0%, #1E3A5F 100%); padding: 40px; border-radius: 16px; text-align: center; margin: 20px 0; }
+        .cta { font-size: 32px; font-weight: bold; margin-bottom: 20px; }
+        .three-col { display: grid; grid-template-columns: repeat(3, 1fr); gap: 30px; }
+        @media print { .slide { page-break-after: always; } }
+    </style>
+</head>
+<body>
+
+<!-- Slide 1: Cover -->
+<div class="slide title-slide">
+    <div class="slide-number">1 / 10</div>
+    <h1>CareTaker</h1>
+    <p class="tagline">Care, Delivered</p>
+    <p class="subtitle">The Direct Connection Platform for Home Healthcare</p>
+    <div style="margin-top: 60px; font-size: 24px; color: #fff;">
+        <p>✓ No intermediaries &nbsp;&nbsp; ✓ Verified caretakers &nbsp;&nbsp; ✓ Transparent pricing</p>
+    </div>
+    <div style="margin-top: 80px;">
+        <p style="font-size: 20px; color: rgba(255,255,255,0.8);">Seeking: $500K Seed Funding</p>
+    </div>
+</div>
+
+<!-- Slide 2: Problem -->
+<div class="slide">
+    <div class="slide-number">2 / 10</div>
+    <h2>The Problem</h2>
+    <h3 style="font-size: 36px; margin-bottom: 40px;">11 Million Americans Need Home Care</h3>
+    
+    <div class="grid">
+        <div class="card">
+            <h4>💸 High Agency Fees</h4>
+            <p>30-50% markups on caretaker wages</p>
+        </div>
+        <div class="card">
+            <h4>🔄 Lack of Continuity</h4>
+            <p>Different caretaker every visit</p>
+        </div>
+        <div class="card">
+            <h4>⚠️ Verification Gap</h4>
+            <p>No standardized vetting process</p>
+        </div>
+        <div class="card">
+            <h4>📅 Scheduling Chaos</h4>
+            <p>Manual coordination, no real-time updates</p>
+        </div>
+    </div>
+    
+    <div style="margin-top: 40px;">
+        <table>
+            <tr><th>Pain Point</th><th>Impact</th></tr>
+            <tr><td>61% report emotional stress</td><td>Caregiver burnout crisis</td></tr>
+            <tr><td>40% report financial strain</td><td>Families choosing between care and essentials</td></tr>
+            <tr><td>67% feel unprepared</td><td>No training, no support, no tools</td></tr>
+        </table>
+    </div>
+</div>
+
+<!-- Slide 3: Solution -->
+<div class="slide">
+    <div class="slide-number">3 / 10</div>
+    <h2>Our Solution</h2>
+    <h3>CareTaker: Direct Connection, Better Care</h3>
+    
+    <div class="highlight">
+        <p style="font-size: 24px;">How It Works</p>
+        <p style="margin-top: 20px;">Patient → Search → Book → Chat → Rate → Repeat</p>
+    </div>
+    
+    <div class="three-col" style="margin-top: 40px;">
+        <div class="card stat">
+            <div class="stat-number">40%</div>
+            <div class="stat-label">Savings vs Agencies</div>
+        </div>
+        <div class="card stat">
+            <div class="stat-number">24hr</div>
+            <div class="stat-label">Average Match Time</div>
+        </div>
+        <div class="card stat">
+            <div class="stat-number">100%</div>
+            <div class="stat-label">Background Verified</div>
+        </div>
+    </div>
+    
+    <div style="margin-top: 40px;">
+        <ul>
+            <li>Direct caretaker-patient matching - no middlemen</li>
+            <li>Real-time availability & instant booking</li>
+            <li>WhatsApp-style chat for care coordination</li>
+            <li>Transparent pricing - no hidden fees</li>
+        </ul>
+    </div>
+</div>
+
+<!-- Slide 4: Market -->
+<div class="slide">
+    <div class="slide-number">4 / 10</div>
+    <h2>Market Opportunity</h2>
+    
+    <div class="grid">
+        <div>
+            <h3>$305 Billion Market</h3>
+            <p style="font-size: 20px; margin-bottom: 30px;">Growing at 8% CAGR</p>
+            
+            <table>
+                <tr><th>Segment</th><th>Value</th></tr>
+                <tr><td>Home Care</td><td>$112B</td></tr>
+                <tr><td>Home Health</td><td>$138B</td></tr>
+                <tr><td>Hospice</td><td>$55B</td></tr>
+            </table>
+        </div>
+        <div>
+            <h3>Target Segments</h3>
+            <div class="card" style="margin-bottom: 20px;">
+                <h4>Primary: Elderly Care (65+)</h4>
+                <p>55 million Americans</p>
+            </div>
+            <div class="card" style="margin-bottom: 20px;">
+                <h4>Secondary: Post-Surgery</h4>
+                <p>40 million annually</p>
+            </div>
+            <div class="card">
+                <h4>Tertiary: Chronic Illness</h4>
+                <p>133 million Americans</p>
+            </div>
+        </div>
+    </div>
+    
+    <div class="highlight" style="margin-top: 40px;">
+        <p>TAM: $305B → SAM: $45B → SOM: $4.5M (Year 1)</p>
+    </div>
+</div>
+
+<!-- Slide 5: Competition -->
+<div class="slide">
+    <div class="slide-number">5 / 10</div>
+    <h2>Competitive Landscape</h2>
+    
+    <table>
+        <tr><th>Competitor</th><th>Model</th><th>Our Advantage</th></tr>
+        <tr><td>Care.com</td><td>Marketplace</td><td>No middleman fees, real-time booking</td></tr>
+        <tr><td>Honor</td><td>Agency</td><td>Lower cost, direct relationship</td></tr>
+        <tr><td>Right at Home</td><td>Franchise</td><td>Faster onboarding, transparent pricing</td></tr>
+        <tr><td>Traditional Agencies</td><td>Full-service</td><td>40-60% cost savings</td></tr>
+    </table>
+    
+    <h3 style="margin-top: 40px;">Our Moat:</h3>
+    <div class="grid">
+        <div class="card">
+            <h4>1. Technology</h4>
+            <p>Real-time matching, Socket.IO chat, modern UX</p>
+        </div>
+        <div class="card">
+            <h4>2. Pricing</h4>
+            <p>0% platform fee (competitors: 15-25%)</p>
+        </div>
+        <div class="card">
+            <h4>3. Verification</h4>
+            <p>Rigorous vetting, not self-reported</p>
+        </div>
+    </div>
+</div>
+
+<!-- Slide 6: Business Model -->
+<div class="slide">
+    <div class="slide-number">6 / 10</div>
+    <h2>Business Model</h2>
+    
+    <div class="grid">
+        <div>
+            <h3>Revenue Streams</h3>
+            <div class="card" style="margin-bottom: 20px;">
+                <h4>💰 Transaction Fees (Primary)</h4>
+                <p>5% platform fee on bookings</p>
+                <p style="color: #0D9488; margin-top: 10px;">Example: $25/hr × 4hrs = $100 → $5 fee</p>
+            </div>
+            <div class="card" style="margin-bottom: 20px;">
+                <h4>⭐ Premium Services</h4>
+                <p>Background check upgrades, priority listing, insurance</p>
+            </div>
+            <div class="card">
+                <h4>🏥 Enterprise</h4>
+                <p>Agency white-label, healthcare integrations</p>
+            </div>
+        </div>
+        <div>
+            <h3>Unit Economics</h3>
+            <div class="card stat" style="margin-top: 20px;">
+                <div class="stat-number">$150</div>
+                <div class="stat-label">Avg. Booking</div>
+            </div>
+            <div style="margin-top: 30px;">
+                <p>CAC: $25</p>
+                <p>LTV: $450 (6 bookings)</p>
+                <p style="color: #0D9488; font-weight: bold; margin-top: 10px;">LTV:CAC = 18:1</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Slide 7: GTM -->
+<div class="slide">
+    <div class="slide-number">7 / 10</div>
+    <h2>Go-to-Market Strategy</h2>
+    
+    <div class="three-col">
+        <div class="card">
+            <h4 style="color: #0D9488;">Phase 1: MVP</h4>
+            <p style="margin-bottom: 15px;">Months 1-3</p>
+            <ul>
+                <li>SF Bay Area launch</li>
+                <li>50 caretakers</li>
+                <li>200 patients</li>
+                <li>Product-market fit</li>
+            </ul>
+        </div>
+        <div class="card">
+            <h4 style="color: #0D9488;">Phase 2: Expand</h4>
+            <p style="margin-bottom: 15px;">Months 4-6</p>
+            <ul>
+                <li>3 metro areas</li>
+                <li>200 caretakers</li>
+                <li>1,000 patients</li>
+                <li>Mobile app launch</li>
+            </ul>
+        </div>
+        <div class="card">
+            <h4 style="color: #0D9488;">Phase 3: National</h4>
+            <p style="margin-bottom: 15px;">Months 7-12</p>
+            <ul>
+                <li>Full US rollout</li>
+                <li>1,000 caretakers</li>
+                <li>10,000 patients</li>
+                <li>Series A ready</li>
+            </ul>
+        </div>
+    </div>
+    
+    <h3 style="margin-top: 40px;">Growth Channels:</h3>
+    <div class="grid" style="margin-top: 20px;">
+        <div class="card">🔍 SEO - "home care near me"</div>
+        <div class="card">🤝 Referral - $20 credit</div>
+        <div class="card">🏥 Healthcare Partnerships</div>
+        <div class="card">📱 Social Media</div>
+    </div>
+</div>
+
+<!-- Slide 8: Traction -->
+<div class="slide">
+    <div class="slide-number">8 / 10</div>
+    <h2>Traction & Milestones</h2>
+    
+    <div class="highlight">
+        <h3>Current Status</h3>
+        <ul style="text-align: left; display: inline-block;">
+            <li>✅ Full-stack application built</li>
+            <li>✅ Database schema designed</li>
+            <li>✅ Real-time chat implemented</li>
+            <li>✅ Supabase integration complete</li>
+            <li>✅ Mobile app architecture ready</li>
+        </ul>
+    </div>
+    
+    <h3 style="margin-top: 40px;">Key Metrics Target:</h3>
+    <table>
+        <tr><th>Metric</th><th>Month 3</th><th>Month 6</th><th>Month 12</th></tr>
+        <tr><td>Caretakers</td><td>50</td><td>200</td><td>1,000</td></tr>
+        <tr><td>Patients</td><td>200</td><td>1,000</td><td>10,000</td></tr>
+        <tr><td>Bookings/Month</td><td>100</td><td>500</td><td>5,000</td></tr>
+        <tr><td>Revenue</td><td>$2,500</td><td>$15,000</td><td>$200,000</td></tr>
+    </table>
+</div>
+
+<!-- Slide 9: Team -->
+<div class="slide">
+    <div class="slide-number">9 / 10</div>
+    <h2>The Team</h2>
+    
+    <div class="grid">
+        <div class="card">
+            <h4 style="font-size: 28px;">[Founder Name]</h4>
+            <p style="color: #0D9488; margin-bottom: 15px;">CEO & Co-Founder</p>
+            <ul>
+                <li>10+ years healthcare technology</li>
+                <li>Previous: Director at HealthTech Corp</li>
+                <li>Stanford MBA, UC Berkeley CS</li>
+                <li>Personal connection to caregiving</li>
+            </ul>
+        </div>
+        <div class="card">
+            <h4 style="font-size: 28px;">[CTO Name]</h4>
+            <p style="color: #0D9488; margin-bottom: 15px;">CTO & Co-Founder</p>
+            <ul>
+                <li>15+ years software development</li>
+                <li>Previous: Senior Engineer at Uber Health</li>
+                <li>Built systems serving 10M+ users</li>
+                <li>Expert in real-time applications</li>
+            </ul>
+        </div>
+    </div>
+    
+    <h3 style="margin-top: 40px;">Advisory Board:</h3>
+    <div class="grid">
+        <div class="card">👩‍⚕️ Dr. Sarah Chen<br><span style="color: #aaa;">Geriatrician, Stanford Medical</span></div>
+        <div class="card">👨‍💼 Marcus Johnson<br><span style="color: #aaa;">Former Care.com VP</span></div>
+        <div class="card">👩‍💼 Lisa Park<br><span style="color: #aaa;">Healthcare Investor</span></div>
+    </div>
+</div>
+
+<!-- Slide 10: Ask -->
+<div class="slide title-slide">
+    <div class="slide-number">10 / 10</div>
+    <h1>The Ask</h1>
+    
+    <div class="highlight" style="margin: 40px 0;">
+        <p class="cta">$500,000 Seed Round</p>
+    </div>
+    
+    <div class="grid" style="margin-top: 40px; text-align: left;">
+        <div>
+            <h3>Use of Funds:</h3>
+            <table>
+                <tr><td>Product (Engineering)</td><td style="text-align: right;">$200K (40%)</td></tr>
+                <tr><td>Marketing</td><td style="text-align: right;">$150K (30%)</td></tr>
+                <tr><td>Operations</td><td style="text-align: right;">$100K (20%)</td></tr>
+                <tr><td>Admin</td><td style="text-align: right;">$50K (10%)</td></tr>
+            </table>
+        </div>
+        <div>
+            <h3>Terms:</h3>
+            <ul>
+                <li>Instrument: Convertible note</li>
+                <li>Discount: 20%</li>
+                <li>Cap: $5M valuation</li>
+                <li>Target Series A: 18 months</li>
+            </ul>
+        </div>
+    </div>
+    
+    <div style="margin-top: 60px;">
+        <p style="font-size: 24px;">🌐 caretaker.app &nbsp;&nbsp; 📧 founder@caretaker.app</p>
+    </div>
+</div>
+
+</body>
+</html>

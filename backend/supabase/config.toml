@@ -1,0 +1,40 @@
+{
+  "projectId": "caretaker",
+  "organizationId": "",
+  "name": "caretaker",
+  "plan": "free",
+  "database": {
+    "version": "15.1",
+    "port": 54322,
+    "shadowPort": 54320,
+    "maxConnections": 25,
+    "poolMode": "transaction",
+    "sslMode": "disable"
+  },
+  "studio": {
+    "port": 54323,
+    "apiUrl": "http://localhost"
+  },
+  "api": {
+    "port": 54321,
+    "schemas": ["public", "storage", "graphql_public"],
+    "extraSearchPaths": ["public", "extensions"],
+    "maxRows": 1000
+  },
+  "storage": {
+    "port": 54321,
+    "fileSizeLimit": "50MiB"
+  },
+  "auth": {
+    "port": 54321,
+    "siteUrl": "http://localhost:5173",
+    "additionalRedirectUrls": [],
+    "jwtExpiry": 3600,
+    "enableSignups": true,
+    "enableAnonymousUsers": false
+  },
+  "realtime": {
+    "port": 54321,
+    "ipVersion": "ipv4"
+  }
+}
