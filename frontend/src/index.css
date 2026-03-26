@@ -1,0 +1,40 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --color-primary: #0D9488;
+  --color-primary-dark: #0F766E;
+  --color-primary-light: #CCFBF1;
+  --color-navy: #1E3A5F;
+  --color-slate: #475569;
+  --color-gray: #94A3B8;
+}
+
+body {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+@layer components {
+  .btn-primary {
+    @apply bg-primary text-white px-6 py-3 rounded-lg font-semibold hover:bg-primary-dark transition-colors duration-200 disabled:bg-gray disabled:cursor-not-allowed;
+  }
+
+  .btn-secondary {
+    @apply bg-transparent text-primary px-6 py-3 rounded-lg font-semibold border-2 border-primary hover:bg-primary-light transition-colors duration-200;
+  }
+
+  .btn-ghost {
+    @apply bg-transparent text-slate px-6 py-3 rounded-lg font-medium hover:bg-gray-100 transition-colors duration-200;
+  }
+
+  .input {
+    @apply w-full px-4 py-3 border border-gray-200 rounded-lg text-sm focus:outline-none focus:border-primary focus:ring-2 focus:ring-primary/20 transition-all duration-200;
+  }
+
+  .card {
+    @apply bg-white rounded-xl p-4 shadow-md;
+  }
+}
